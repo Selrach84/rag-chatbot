@@ -1,0 +1,7 @@
+# vault-chat
+
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+dist/
