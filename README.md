@@ -1,4 +1,4 @@
-# Vault Chat
+# RAG Chatbot
 
 Chat with your Obsidian vault using hybrid RAG + DeepSeek LLM synthesis.
 
@@ -21,8 +21,7 @@ pip install -r requirements.txt
 export DEEPSEEK_API_KEY=sk-...
 
 # 3. Configure vault path
-#    Edit server.py and set VAULT_PATH or use env var:
-export VAULT_CHAT_VAULT="/Volumes/External 500 Gb/OBSIDIAN 5.17.26"
+export RAG_CHATBOT_VAULT="/Volumes/External 500 Gb/OBSIDIAN 5.17.26"
 
 # 4. Start
 python server.py
@@ -35,12 +34,12 @@ python server.py
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `DEEPSEEK_API_KEY` | — | DeepSeek API key (required) |
-| `VAULT_CHAT_VAULT` | auto-detect | Path to Obsidian vault root |
-| `VAULT_CHAT_PORT` | `8080` | Web UI + API port |
-| `VAULT_CHAT_HOST` | `127.0.0.1` | Bind address |
+| `RAG_CHATBOT_VAULT` | auto-detect | Path to Obsidian vault root |
+| `RAG_CHATBOT_PORT` | `8080` | Web UI + API port |
+| `RAG_CHATBOT_HOST` | `127.0.0.1` | Bind address |
 | `DEEPSEEK_MODEL` | `deepseek-v4-flash` | Model for synthesis |
-| `VAULT_CHAT_K` | `6` | Number of notes to retrieve |
-| `VAULT_CHAT_HOPS` | `1` | Knowledge graph hop depth |
+| `RAG_CHATBOT_K` | `6` | Number of notes to retrieve |
+| `RAG_CHATBOT_HOPS` | `1` | Knowledge graph hop depth |
 
 ## How It Works
 

@@ -1,5 +1,5 @@
 """
-vault-chat — Web UI chatbot for vault-rag + DeepSeek synthesis.
+rag-chatbot — Web UI chatbot for vault-rag + DeepSeek synthesis.
 
 RAG retrieval from obsidian-vault-rag, LLM synthesis via DeepSeek API.
 Streams answers to a web chat UI via SSE.
@@ -23,22 +23,22 @@ import uvicorn
 
 # ── Config ────────────────────────────────────────────────────────────
 VAULT_PATH = os.environ.get(
-    "VAULT_CHAT_VAULT",
+    "RAG_CHATBOT_VAULT",
     "/Volumes/External 500 Gb/OBSIDIAN 5.17.26",
 )
 VAULT_RAG = os.path.join(VAULT_PATH, "vault-rag.py")
 RAG_CLIENT = os.path.join(VAULT_PATH, "rag_client.py")
-PORT = int(os.environ.get("VAULT_CHAT_PORT", "8080"))
-HOST = os.environ.get("VAULT_CHAT_HOST", "127.0.0.1")
+PORT = int(os.environ.get("RAG_CHATBOT_PORT", "8080"))
+HOST = os.environ.get("RAG_CHATBOT_HOST", "127.0.0.1")
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 DEEPSEEK_MODEL = os.environ.get("DEEPSEEK_MODEL", "deepseek-v4-flash")
 DEEPSEEK_BASE = "https://api.deepseek.com"
-K_DEFAULT = int(os.environ.get("VAULT_CHAT_K", "6"))
-HOPS_DEFAULT = int(os.environ.get("VAULT_CHAT_HOPS", "1"))
+K_DEFAULT = int(os.environ.get("RAG_CHATBOT_K", "6"))
+HOPS_DEFAULT = int(os.environ.get("RAG_CHATBOT_HOPS", "1"))
 
 HERE = Path(__file__).parent
 
-app = FastAPI(title="Vault Chat")
+app = FastAPI(title="RAG Chatbot")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 
 # ── DeepSeek client ──────────────────────────────────────────────────
@@ -283,7 +283,7 @@ async def index():
 
 def main():
     print(f"╔══════════════════════════════════════════╗")
-    print(f"║        Vault Chat — RAG Chatbot          ║")
+    print(f"║        RAG Chatbot — vault + DeepSeek     ║")
     print(f"╠══════════════════════════════════════════╣")
     print(f"║ Vault:   {VAULT_PATH:<34}║")
     print(f"║ Model:   {DEEPSEEK_MODEL:<34}║")
